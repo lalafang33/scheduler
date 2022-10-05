@@ -43,17 +43,17 @@ it.skip("renders a clickable button", () => {
   expect(handleClick).toHaveBeenCalledTimes(1);
 });
 
-it.skip("renders a disabled button", () => {
-  const handleClick = jest.fn();
-  const { getByText } = render(
-    <Button disabled onClick={handleClick}>
-      Disabled
-    </Button>
-  );
+// it.skip("renders a disabled button", () => {
+//   const handleClick = jest.fn();
+//   const { getByText } = render(
+//     <Button disabled onClick={handleClick}>
+//       Disabled
+//     </Button>
+//   );
 
-  const button = getByText("Disabled");
+//   const button = getByText("Disabled");
 
-  fireEvent.click(button);
+//   fireEvent.click(button);
 
-  expect(handleClick).toHaveBeenCalledTimes(0);
-});
+//   expect(handleClick).toHaveBeenCalledTimes(0);
+// });
