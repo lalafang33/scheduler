@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useDeferredValue } from "react";
 import "components/InterviewerList.scss"
 import InterviewerListItem from "./InterviewerListItem";
 
@@ -6,11 +6,11 @@ export default function InterviewerList(props) {
   const interviewerArray = props.interviewers.map((interviewer)=> {
     return(
       <InterviewerListItem
-        key={interviewer.id}
-        name={interviewer.name}
-        selected={interviewer.id === props.interviewer}
-        setInterviewer={() => props.setInterviewer(interviewer.id)}
-        avatar={interviewer.avatar}
+      key={interviewer.id}
+      name={interviewer.name}
+      avatar={interviewer.avatar}
+      selected={interviewer.id === props.value}
+      setInterviewer={() => props.onChange(interviewer.id)}  
       />
     )
   })
