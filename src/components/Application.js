@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 import Appointment from "components/Appointment";
 import axios from "axios";
 
+import { getAppointmentsForDay } from "helpers/selectors";
+
 
 import "components/Application.scss";
 import DayList from "./DayList";
@@ -48,18 +50,47 @@ const appointments = {
 
 export default function Application(props) {
 
-  const [day, setDay] = useState([])
-  const appointmentArr = Object.values(appointments).map(app =>{
+  // const [day, setDay] = useState([])
+
+  const [state, setState] = useState({
+    day: "Monday",
+    days: [],
+    // you may put the line below, but will have to remove/comment hardcoded appointments variable
+    appointments: {}
+  });
+  
+
+  const dailyAppointments = getAppointmentsForDay(state, state.day)
+  const appointmentArr = dailyAppointments.map(app =>{
     return <Appointment key={app.id} {...app} />
   })
 
-  useEffect(()=>{
-    axios.get("/api/days")
-    .then(response => {
-      console.log(response[0])
-      setDay(response[0]);
+  // useEffect(()=>{
+  //   axios.get("/api/days")
+  //   .then(response => {
+  //     console.log(response.data)
+  //     setState(state=>({...state, days:response.data}))
+  //   })
+  // }, [])
+  
+  
+  useEffect(() => {
+    Promise.all([
+      axios.get("/api/days"),
+      axios.get("/api/appointments"),
+      axios.get("/api/interviewers")
+    ]).then((all) => {
+      setAppointments(all[1].data);
+      setInterviewers(all[2].data);
+      setDays(all[0].data);
     })
   }, [])
+  
+  const setInterviewers = (interviewers) => setState(prev => ({...prev, interviewers}));
+  const setAppointments = (appointments) => setState(prev => ({...prev, appointments}));
+  const setDays = (days) => setState(prev=> ({...prev, days}))
+  const setDay = (day) => setState(prev => ({...prev, day}));
+
 
   return (
     <main className="layout">
@@ -72,8 +103,8 @@ export default function Application(props) {
         <hr className="sidebar__separator sidebar--centered" />
         <nav className="sidebar__menu" >
         <DayList 
-        days={days} 
-        value={day} 
+        days={state.days} 
+        value={state.day} 
         onChange={setDay} 
         />
         </nav>
