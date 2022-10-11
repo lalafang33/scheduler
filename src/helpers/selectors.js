@@ -16,3 +16,30 @@ export const getAppointmentsForDay = (state, day) => {
   }
   return result; 
 }
+
+export const getInterview = (state, interview) => {
+  if (!interview) return null;
+  const id = interview.interviewer;
+  const interviewer = state.interviewers[id]
+  return {
+    student: interview.student,
+    interviewer
+  }
+};
+
+export const getInterviewersForDay = (state, dayA) => {
+  const day = state.days.find(d => d.name === dayA)
+  if (!day) return [];
+  
+  const result = [];
+
+  console.log(day.interviewers);
+  for (const id of day.interviewers) {
+    result.push(state.interviewers[id]);
+  }
+
+  return result;
+
+};
+ 
+
