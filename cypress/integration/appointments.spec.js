@@ -25,7 +25,7 @@ describe("appointment", ()=> {
 
 
     cy.get(".appointment__actions-button")
-      .invoke('show') // call jquery method 'show' on the '.container'
+      .invoke('show') 
     cy.get("[alt=Edit]").click();
 
     cy.get("[data-testid=student-name-input]")
@@ -42,7 +42,7 @@ describe("appointment", ()=> {
 
   it("should Cancel an interview", () => {
     cy.get(".appointment__actions-button")
-      .invoke('show') // call jquery method 'show' on the '.container'
+      .invoke('show') 
     cy.get("[alt=Delete]").click();
 
     cy.get(".appointment__card--confirm")

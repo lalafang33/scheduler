@@ -100,15 +100,6 @@ export default function useApplicationData() {
       .then(response => {
         setState((prev) => ({ ...prev, appointments, days }));
         return true;
-        // newDays[dayId] = { ...newDays[dayId], spots: newDays[dayId].spots + 1 }
-
-        // setState({
-        //   ...state,
-        //   appointments,
-        //   days: newDays
-        // });
-
-        // return response;
       })
       
   }

@@ -9,14 +9,6 @@ export default function Button(props) {
       "button--danger": props.danger
    });
  
-   // if (props.confirm) {
-   //   classNames("button",{"button--confirm": true});
-   // }
- 
-   // if (props.danger) {
-   //   classNames("button",{"button--danger": true});
-   // }
- 
    return (
      <button
        className={buttonClass}

@@ -5,7 +5,6 @@ import { useState } from "react";
 
   const transition = (newView, replace = false) => {
     if (replace) {
-      // we want the history to stay the same length, just replace the last index
       return setHistory((prev) => {
         const copy = [
           ...prev.slice(0, prev.length - 1),
@@ -16,7 +15,6 @@ import { useState } from "react";
       });
     }
 
-    // we want to add the new view to the history
     setHistory((prev) => {
       const copy = [...prev, newView];
       return copy;

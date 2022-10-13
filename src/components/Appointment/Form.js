@@ -5,7 +5,6 @@ import Button from "components/Button";
 
 export default function Form(props) {
   const [student, setStudent] = useState(props.name || "")
-  // const [name, setName] = useState(props.name || "");
   const [interviewer, setInterviewer] = useState(props.interviewer || null)
   const [error, setError] = useState("");
   const {interviewers, onCancel, onSave } = props;
@@ -60,8 +59,6 @@ export default function Form(props) {
       <section className="appointment__card-right">
         <section className="appointment__actions">
           <Button danger onClick={cancel}>Cancel</Button>
-          {/* <Button confirm onClick={()=> props.onSave(student, interviewer)}>Save</Button> */}
-          {/* <Button confirm onClick={()=> props.onSave(student, interviewer)}>Save</Button> */}
           <Button confirm onClick={event => validate()}>Save</Button>
         </section>
       </section>
