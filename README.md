@@ -37,7 +37,7 @@ npm run storybook
 ## Final Product 
 
 !["New Appointment"](https://github.com/lalafang33/scheduler/blob/main/docs/New%20Appointment.png)
-!["Blank Interviewer Error"](https://github.com/lalafang33/scheduler/blob/main/docs/Blank%20Interviewer%20Name%20Error.png)
+!["Blank Interviewer Error"](https://github.com/lalafang33/scheduler/blob/master/docs/Blank%20Interviewer%20Name%20Error.png)
 !["Blank Student Name Error"](https://github.com/lalafang33/scheduler/blob/main/docs/Blank%20Student%20Name%20Error.png)
 !["Deleting Error"](https://github.com/lalafang33/scheduler/blob/main/docs/Delete%20Error%20.png)
 !["Deleting Message"](https://github.com/lalafang33/scheduler/blob/main/docs/Deleting%20Message.png)
