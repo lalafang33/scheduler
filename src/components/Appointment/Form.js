@@ -4,8 +4,11 @@ import Button from "components/Button";
 
 
 export default function Form(props) {
-  const [student, setStudent] = useState(props.student || "")
+  const [student, setStudent] = useState(props.name || "")
+  // const [name, setName] = useState(props.name || "");
   const [interviewer, setInterviewer] = useState(props.interviewer || null)
+  const [error, setError] = useState("");
+  const {interviewers, onCancel, onSave } = props;
   const reset = () => {
     setStudent("");
     setInterviewer(null);
@@ -14,8 +17,22 @@ export default function Form(props) {
     reset();
     props.onCancel([]);
   }
+  function validate() {
+    if (student === "") {
+      setError("Student name cannot be blank");
+      return;
+    }
+    if (interviewer === null) {
+      setError("You must select an Interviewer")
+      return;
+    }
+
+    setError("");
+    onSave(student, interviewer);
+  }
 
   console.log("THIS IS FORM STUDENT", interviewer)
+
   return (
     <main className="appointment__card appointment__card--create">
       <section className="appointment__card-left">
@@ -27,22 +44,25 @@ export default function Form(props) {
             placeholder="Enter Student Name"
             value={student}
             onChange={(event) => setStudent(event.target.value)}
+            data-testid="student-name-input"
           /*
             This must be a controlled component
             your code goes here
           */
           />
         </form>
+        <section className="appointment__validation">{error}</section>
         <InterviewerList
-        interviewers={props.interviewers} 
-        value={interviewer} 
-        setInterviewer={setInterviewer}/>
+          interviewers={props.interviewers}
+          value={interviewer}
+          setInterviewer={setInterviewer} />
       </section>
       <section className="appointment__card-right">
         <section className="appointment__actions">
           <Button danger onClick={cancel}>Cancel</Button>
           {/* <Button confirm onClick={()=> props.onSave(student, interviewer)}>Save</Button> */}
-          <Button confirm onClick={()=> props.onSave(student, interviewer)}>Save</Button>
+          {/* <Button confirm onClick={()=> props.onSave(student, interviewer)}>Save</Button> */}
+          <Button confirm onClick={event => validate()}>Save</Button>
         </section>
       </section>
     </main>

@@ -31,22 +31,25 @@ export default function Appointment(props) {
       student: name,
       interviewer
     };
-    console.log('I AM HERE SAVE FUNCTION', name, interviewer)
+    transition(SAVING, true);
+  
     props.bookInterview(props.id, interview)
       .then(() => transition(SHOW))
       .catch(() => {
         transition(ERROR_SAVE, true)
       })
   }
+  
   function cancel() {
 
     transition(DELETING, true);
 
-    props.cancelInterview(props.id)
+    props
+      .cancelInterview(props.id)
       .then(() => {
         transition(EMPTY);
       })
-      .catch(() => {
+      .catch(error => {
         transition(ERROR_DELETE, true);
       })
 
@@ -54,7 +57,7 @@ export default function Appointment(props) {
 
 
   return (
-    <article className="appointment">
+    <article data-testid="appointment" className="appointment">
       <Header time={props.time} />
       {mode === EMPTY && 
         <Empty onAdd={() => transition(CREATE)} />}
