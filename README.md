@@ -36,8 +36,8 @@ npm run storybook
 
 ## Final Product 
 
-!["Screenshot of URLs page"](https://github.com/lalafang33/tweeterClone-/blob/main/docs/Desktop-MainPage.png)
-!["Screenshot of URLs page"](https://github.com/lalafang33/tweeterClone-/blob/main/docs/Empty-Tweet-error.png)
-!["Screenshot of URLs page"](https://github.com/lalafang33/tweeterClone-/blob/main/docs/Mobile-MainPage.png)
-!["Screenshot of URLs page"](https://github.com/lalafang33/tweeterClone-/blob/main/docs/err-toolong.png)
-!["Screenshot of URLs page"](https://github.com/lalafang33/tweeterClone-/blob/main/docs/tweet-display.png)
+!["New Appointment"](https://github.com/lalafang33/scheduler/blob/main/docs/New%20Appointment.png)
+!["Blank Interviewer Error"](https://github.com/lalafang33/scheduler/blob/main/docs/Blank%20Interviewer%20Name%20Error.png)
+!["Blank Student Name Error"](https://github.com/lalafang33/scheduler/blob/main/docs/Blank%20Student%20Name%20Error.png)
+!["Deleting Error"](https://github.com/lalafang33/scheduler/blob/main/docs/Delete%20Error%20.png)
+!["Deleting Message"](https://github.com/lalafang33/scheduler/blob/main/docs/Deleting%20Message.png)
