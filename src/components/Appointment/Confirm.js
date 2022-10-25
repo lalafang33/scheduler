@@ -1,4 +1,3 @@
-import { on } from "pg/lib/query";
 import React from "react";
 import Button from "components/Button";
 

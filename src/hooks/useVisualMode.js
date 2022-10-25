@@ -3,6 +3,7 @@ import { useState } from "react";
  export default function useVisualMode (initialMode) {
   const [history, setHistory] = useState([initialMode]);
 
+  // replaces previous mode in hisotry with new 
   const transition = (newView, replace = false) => {
     if (replace) {
       return setHistory((prev) => {
@@ -22,16 +23,14 @@ import { useState } from "react";
   };
 
   const back = () => {
-    setHistory((prev) => {
-      if (prev.length > 1) {
-        const copy = prev.slice(0, prev.length - 1);
-        return copy;
-      }
-
-      return prev;
-    });
+    if(history.length < 2){
+      return 
+    }
+    // setting history to not include the last item of the array 
+    setHistory((prev) => 
+    [...prev.slice(0, history.length -1)])
   };
-
+  // returning mode as the last item of history 
   return {
     mode: history[history.length - 1],
     transition,

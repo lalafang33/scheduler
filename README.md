@@ -26,6 +26,12 @@ npm test
 npm run storybook
 ```
 
+## Clone below github for scheduler-api 
+
+```sh
+https://github.com/lighthouse-labs/scheduler-api
+```
+
 ## Dependencies
 
 - Axios

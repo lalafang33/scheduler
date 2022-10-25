@@ -28,12 +28,13 @@ export default function useApplicationData() {
       setDays(all[0].data);
     })
   }, [])
-
   const setAppointments = (appointments) => setState(prev => ({ ...prev, appointments }));
   const setInterviewers = (interviewers) => setState(prev => ({ ...prev, interviewers }));
   const setDays = (days) => setState(prev => ({ ...prev, days }))
   const setDay = (day) => setState(prev => ({ ...prev, day }));
- 
+
+
+//  updating the spots remaining with wherether interview spots are empty 
   const spotsRemain = function (id, interview) {
     const num = () => {
       if (!interview) {
@@ -69,7 +70,7 @@ export default function useApplicationData() {
     let newDays = [...state.days];
     const days = spotsRemain(id, interview);
     console.log("THIS IS INTERVIEW", interview)
-    return axios.put(`http://localhost:8001/api/appointments/${id}`, { interview })
+    return axios.put(`/api/appointments/${id}`, { interview })
       .then(response => {
         console.log("appointment saved in database")
         setState({ ...state, days, appointments })
@@ -96,7 +97,7 @@ export default function useApplicationData() {
       }
     }
     const days = spotsRemain(id);
-    return axios.delete(`http://localhost:8001/api/appointments/${id}`)
+    return axios.delete(`/api/appointments/${id}`)
       .then(response => {
         setState((prev) => ({ ...prev, appointments, days }));
         return true;

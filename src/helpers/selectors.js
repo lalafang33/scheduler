@@ -1,5 +1,5 @@
 
-
+// returns array for appointment for that day 
 export const getAppointmentsForDay = (state, day) => {
   let result = []; 
   let appointmentArray;
@@ -17,6 +17,7 @@ export const getAppointmentsForDay = (state, day) => {
   return result; 
 }
 
+// returns the student and interviewer for appointment 
 export const getInterview = (state, interview) => {
   if (!interview) return null;
   const id = interview.interviewer;
@@ -27,6 +28,7 @@ export const getInterview = (state, interview) => {
   }
 };
 
+// returns an array for interviewers for the day 
 export const getInterviewersForDay = (state, dayA) => {
   const day = state.days.find(d => d.name === dayA)
   if (!day) return [];
